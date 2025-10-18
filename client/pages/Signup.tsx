@@ -104,7 +104,9 @@ export default function Signup() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-md mx-auto">
           <div className="bg-card border border-border rounded-lg p-8">
-            <h1 className="text-3xl font-bold text-center mb-2">Create Account</h1>
+            <h1 className="text-3xl font-bold text-center mb-2">
+              Create Account
+            </h1>
             <p className="text-center text-muted-foreground mb-8">
               Join Easy Mart and start shopping
             </p>
@@ -138,7 +140,9 @@ export default function Signup() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Email</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Email
+                </label>
                 <div className="relative">
                   <Mail
                     size={18}
@@ -237,7 +241,10 @@ export default function Signup() {
             <div className="mt-6 pt-6 border-t border-border text-center">
               <p className="text-muted-foreground">
                 Already have an account?{" "}
-                <Link to="/login" className="text-primary font-bold hover:underline">
+                <Link
+                  to="/login"
+                  className="text-primary font-bold hover:underline"
+                >
                   Sign in
                 </Link>
               </p>

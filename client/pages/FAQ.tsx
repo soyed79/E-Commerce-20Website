@@ -73,7 +73,9 @@ export default function FAQ() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+            <h1 className="text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h1>
             <p className="text-muted-foreground text-lg">
               Find answers to common questions about Easy Mart
             </p>
@@ -89,7 +91,9 @@ export default function FAQ() {
                   onClick={() => toggleItem(index)}
                   className="w-full px-6 py-4 flex items-center justify-between hover:bg-secondary transition-colors"
                 >
-                  <span className="font-semibold text-left">{faq.question}</span>
+                  <span className="font-semibold text-left">
+                    {faq.question}
+                  </span>
                   <ChevronDown
                     size={20}
                     className={`flex-shrink-0 transition-transform ${
@@ -110,7 +114,10 @@ export default function FAQ() {
           {/* Contact CTA */}
           <div className="mt-12 p-8 bg-primary text-primary-foreground rounded-lg text-center">
             <h2 className="text-2xl font-bold mb-2">Still Have Questions?</h2>
-            <p className="mb-4">Can't find the answer you're looking for? Our support team is here to help.</p>
+            <p className="mb-4">
+              Can't find the answer you're looking for? Our support team is here
+              to help.
+            </p>
             <a
               href="mailto:support@easymart.bd"
               className="inline-block bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"

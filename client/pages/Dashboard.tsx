@@ -163,22 +163,33 @@ export default function Dashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="text-left py-3 px-4 font-semibold">Order ID</th>
+                    <th className="text-left py-3 px-4 font-semibold">
+                      Order ID
+                    </th>
                     <th className="text-left py-3 px-4 font-semibold">Date</th>
                     <th className="text-left py-3 px-4 font-semibold">Items</th>
                     <th className="text-left py-3 px-4 font-semibold">Total</th>
-                    <th className="text-left py-3 px-4 font-semibold">Status</th>
+                    <th className="text-left py-3 px-4 font-semibold">
+                      Status
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {orders.map((order) => (
-                    <tr key={order.id} className="border-b border-border hover:bg-secondary transition-colors">
-                      <td className="py-3 px-4">{order.id.substring(0, 15)}...</td>
+                    <tr
+                      key={order.id}
+                      className="border-b border-border hover:bg-secondary transition-colors"
+                    >
+                      <td className="py-3 px-4">
+                        {order.id.substring(0, 15)}...
+                      </td>
                       <td className="py-3 px-4">
                         {new Date(order.createdAt).toLocaleDateString()}
                       </td>
                       <td className="py-3 px-4">{order.items.length}</td>
-                      <td className="py-3 px-4 font-semibold">৳ {order.total}</td>
+                      <td className="py-3 px-4 font-semibold">
+                        ৳ {order.total}
+                      </td>
                       <td className="py-3 px-4">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -187,7 +198,8 @@ export default function Dashboard() {
                               : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400"
                           }`}
                         >
-                          {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                          {order.status.charAt(0).toUpperCase() +
+                            order.status.slice(1)}
                         </span>
                       </td>
                     </tr>
@@ -196,7 +208,9 @@ export default function Dashboard() {
               </table>
             </div>
           ) : (
-            <p className="text-muted-foreground text-center py-8">No orders yet</p>
+            <p className="text-muted-foreground text-center py-8">
+              No orders yet
+            </p>
           )}
         </div>
       </div>

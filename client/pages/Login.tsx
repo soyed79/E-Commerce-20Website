@@ -30,7 +30,7 @@ export default function Login() {
       const user = users.find(
         (u) =>
           u.email === email &&
-          localStorage.getItem(`user_pwd_${u.id}`) === password
+          localStorage.getItem(`user_pwd_${u.id}`) === password,
       );
 
       if (!user) {
@@ -53,7 +53,9 @@ export default function Login() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-md mx-auto">
           <div className="bg-card border border-border rounded-lg p-8">
-            <h1 className="text-3xl font-bold text-center mb-2">Welcome Back</h1>
+            <h1 className="text-3xl font-bold text-center mb-2">
+              Welcome Back
+            </h1>
             <p className="text-center text-muted-foreground mb-8">
               Sign in to your Easy Mart account
             </p>
@@ -66,7 +68,9 @@ export default function Login() {
               )}
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Email</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Email
+                </label>
                 <div className="relative">
                   <Mail
                     size={18}
@@ -128,7 +132,10 @@ export default function Login() {
             <div className="mt-6 pt-6 border-t border-border text-center">
               <p className="text-muted-foreground">
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-primary font-bold hover:underline">
+                <Link
+                  to="/signup"
+                  className="text-primary font-bold hover:underline"
+                >
                   Sign up
                 </Link>
               </p>
@@ -136,7 +143,8 @@ export default function Login() {
 
             <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
               <p className="text-xs text-blue-700 dark:text-blue-300">
-                <strong>Demo:</strong> Use any email and password to create an account first
+                <strong>Demo:</strong> Use any email and password to create an
+                account first
               </p>
             </div>
           </div>

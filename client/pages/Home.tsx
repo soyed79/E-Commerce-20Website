@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import { ChevronRight, Zap, Truck, Shield, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
-import { getProducts, productCategories, getProductsByCategory } from "@/lib/products";
+import {
+  getProducts,
+  productCategories,
+  getProductsByCategory,
+} from "@/lib/products";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -103,14 +107,18 @@ export default function Home() {
         {/* Carousel Controls */}
         <button
           onClick={() =>
-            setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+            setCurrentSlide(
+              (prev) => (prev - 1 + heroSlides.length) % heroSlides.length,
+            )
           }
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full transition-colors"
         >
           ←
         </button>
         <button
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+          onClick={() =>
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+          }
           className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full transition-colors"
         >
           →
@@ -139,9 +147,13 @@ export default function Home() {
                 key={index}
                 className="bg-card rounded-lg p-6 text-center border border-border hover:shadow-lg transition-shadow"
               >
-                <div className="text-primary mb-4 flex justify-center">{feature.icon}</div>
+                <div className="text-primary mb-4 flex justify-center">
+                  {feature.icon}
+                </div>
                 <h3 className="font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -150,7 +162,9 @@ export default function Home() {
 
       {/* Product Categories */}
       <section className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold mb-8 text-center">Shop by Category</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Shop by Category
+        </h2>
 
         {/* Category Banners */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -175,11 +189,16 @@ export default function Home() {
 
         {/* Featured Products from Each Category */}
         {productCategories.map((category) => {
-          const categoryProducts = getProductsByCategory(category.name).slice(0, 5);
+          const categoryProducts = getProductsByCategory(category.name).slice(
+            0,
+            5,
+          );
           return (
             <div key={category.name} className="mb-16">
               <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold">{category.emoji} {category.name}</h3>
+                <h3 className="text-2xl font-bold">
+                  {category.emoji} {category.name}
+                </h3>
                 <Link
                   to={`/category/${encodeURIComponent(category.name)}`}
                   className="text-primary font-semibold hover:underline flex items-center gap-1"
@@ -201,7 +220,9 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="bg-secondary py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            What Our Customers Say
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -221,13 +242,20 @@ export default function Home() {
                 text: "Great variety of products. Easy returns and refunds. Highly recommended!",
               },
             ].map((testimonial, index) => (
-              <div key={index} className="bg-card rounded-lg p-6 border border-border">
+              <div
+                key={index}
+                className="bg-card rounded-lg p-6 border border-border"
+              >
                 <div className="flex gap-1 mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
+                    <span key={i} className="text-yellow-400">
+                      ⭐
+                    </span>
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-4">"{testimonial.text}"</p>
+                <p className="text-muted-foreground mb-4">
+                  "{testimonial.text}"
+                </p>
                 <p className="font-semibold">{testimonial.name}</p>
               </div>
             ))}

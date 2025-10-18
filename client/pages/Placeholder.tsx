@@ -16,7 +16,8 @@ export default function Placeholder() {
         <div className="text-center py-12">
           <h1 className="text-4xl font-bold mb-4">{pageName}</h1>
           <p className="text-muted-foreground text-lg mb-8">
-            This page is coming soon! Let us know if you'd like us to prioritize it.
+            This page is coming soon! Let us know if you'd like us to prioritize
+            it.
           </p>
           <div className="flex gap-4 justify-center">
             <Link

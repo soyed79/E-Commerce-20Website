@@ -12,7 +12,16 @@ import {
   LogOut,
   User,
 } from "lucide-react";
-import { getCart, getWishlist, getTheme, setTheme, getCurrentUser, setCurrentUser, getLanguage, setLanguage } from "@/lib/storage";
+import {
+  getCart,
+  getWishlist,
+  getTheme,
+  setTheme,
+  getCurrentUser,
+  setCurrentUser,
+  getLanguage,
+  setLanguage,
+} from "@/lib/storage";
 import { productCategories } from "@/lib/products";
 
 export default function Header() {
@@ -104,7 +113,10 @@ export default function Header() {
           </Link>
 
           {/* Search Bar - Desktop */}
-          <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-lg relative">
+          <form
+            onSubmit={handleSearch}
+            className="hidden md:flex flex-1 max-w-lg relative"
+          >
             <input
               type="text"
               placeholder="Search products..."
@@ -225,19 +237,34 @@ export default function Header() {
             </div>
           </div>
 
-          <Link to="/" className="py-2 text-foreground hover:text-primary transition-colors">
+          <Link
+            to="/"
+            className="py-2 text-foreground hover:text-primary transition-colors"
+          >
             Home
           </Link>
-          <Link to="/deals" className="py-2 text-foreground hover:text-primary transition-colors">
+          <Link
+            to="/deals"
+            className="py-2 text-foreground hover:text-primary transition-colors"
+          >
             Deals
           </Link>
-          <Link to="/blog" className="py-2 text-foreground hover:text-primary transition-colors">
+          <Link
+            to="/blog"
+            className="py-2 text-foreground hover:text-primary transition-colors"
+          >
             Blog
           </Link>
-          <Link to="/faq" className="py-2 text-foreground hover:text-primary transition-colors">
+          <Link
+            to="/faq"
+            className="py-2 text-foreground hover:text-primary transition-colors"
+          >
             FAQ
           </Link>
-          <Link to="/contact" className="py-2 text-foreground hover:text-primary transition-colors">
+          <Link
+            to="/contact"
+            className="py-2 text-foreground hover:text-primary transition-colors"
+          >
             Contact
           </Link>
         </nav>

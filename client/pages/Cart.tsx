@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Trash2, Plus, Minus, ShoppingBag } from "lucide-react";
 import Layout from "@/components/Layout";
-import { getCart, removeFromCart, updateCartQuantity, getCurrentUser } from "@/lib/storage";
+import {
+  getCart,
+  removeFromCart,
+  updateCartQuantity,
+  getCurrentUser,
+} from "@/lib/storage";
 import { CartItem } from "@/lib/products";
 
 export default function Cart() {
@@ -27,7 +32,10 @@ export default function Cart() {
     setCartItems(getCart());
   };
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.product.price * item.quantity,
+    0,
+  );
   const shippingCost = subtotal > 500 ? 0 : 80;
   const total = subtotal + shippingCost;
 
@@ -45,7 +53,10 @@ export default function Cart() {
       <Layout>
         <div className="container mx-auto px-4 py-12">
           <div className="text-center py-12">
-            <ShoppingBag size={64} className="mx-auto text-muted mb-4 opacity-50" />
+            <ShoppingBag
+              size={64}
+              className="mx-auto text-muted mb-4 opacity-50"
+            />
             <h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
             <p className="text-muted-foreground mb-6">
               Add some products to get started!
@@ -99,7 +110,9 @@ export default function Cart() {
                     <p className="text-sm text-muted-foreground mb-2">
                       {item.product.category}
                     </p>
-                    <p className="font-bold text-primary">৳ {item.product.price}</p>
+                    <p className="font-bold text-primary">
+                      ৳ {item.product.price}
+                    </p>
                   </div>
 
                   {/* Quantity Control */}
@@ -108,7 +121,7 @@ export default function Cart() {
                       onClick={() =>
                         handleUpdateQuantity(
                           item.product.id,
-                          Math.max(1, item.quantity - 1)
+                          Math.max(1, item.quantity - 1),
                         )
                       }
                       className="p-1 hover:bg-secondary rounded transition-colors"
@@ -121,7 +134,7 @@ export default function Cart() {
                       onChange={(e) =>
                         handleUpdateQuantity(
                           item.product.id,
-                          Math.max(1, parseInt(e.target.value) || 1)
+                          Math.max(1, parseInt(e.target.value) || 1),
                         )
                       }
                       className="w-12 text-center border border-border rounded py-1"
@@ -176,7 +189,9 @@ export default function Cart() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Items</span>
-                  <span>{cartItems.reduce((sum, item) => sum + item.quantity, 0)}</span>
+                  <span>
+                    {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+                  </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Shipping</span>

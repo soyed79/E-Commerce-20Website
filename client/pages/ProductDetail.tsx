@@ -16,7 +16,9 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const product = id ? getProductById(id) : null;
   const [quantity, setQuantity] = useState(1);
-  const [inWishlist, setInWishlist] = useState(product ? isInWishlist(product.id) : false);
+  const [inWishlist, setInWishlist] = useState(
+    product ? isInWishlist(product.id) : false,
+  );
   const [activeTab, setActiveTab] = useState("description");
 
   if (!product) {
@@ -41,7 +43,7 @@ export default function ProductDetail() {
   const relatedProducts = getRelatedProducts(product.id);
   const discount = product.originalPrice
     ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
+        ((product.originalPrice - product.price) / product.originalPrice) * 100,
       )
     : 0;
 
@@ -237,14 +239,18 @@ export default function ProductDetail() {
                   <span>🚚</span>
                   <div>
                     <p className="font-semibold">Free Delivery</p>
-                    <p className="text-muted-foreground">On orders over ৳ 500</p>
+                    <p className="text-muted-foreground">
+                      On orders over ৳ 500
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-3">
                   <span>🔄</span>
                   <div>
                     <p className="font-semibold">Easy Returns</p>
-                    <p className="text-muted-foreground">30-day return policy</p>
+                    <p className="text-muted-foreground">
+                      30-day return policy
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -281,7 +287,9 @@ export default function ProductDetail() {
 
           {activeTab === "description" && (
             <div className="prose prose-sm max-w-none">
-              <p className="text-muted-foreground mb-4">{product.description}</p>
+              <p className="text-muted-foreground mb-4">
+                {product.description}
+              </p>
             </div>
           )}
 
@@ -289,13 +297,20 @@ export default function ProductDetail() {
             <div className="space-y-4">
               {product.specifications ? (
                 Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key} className="flex justify-between py-2 border-b border-border">
+                  <div
+                    key={key}
+                    className="flex justify-between py-2 border-b border-border"
+                  >
                     <span className="font-semibold text-sm">{key}</span>
-                    <span className="text-muted-foreground text-sm">{value}</span>
+                    <span className="text-muted-foreground text-sm">
+                      {value}
+                    </span>
                   </div>
                 ))
               ) : (
-                <p className="text-muted-foreground">No specifications available</p>
+                <p className="text-muted-foreground">
+                  No specifications available
+                </p>
               )}
             </div>
           )}

@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { CheckCircle, Package, MapPin, Phone, Mail, Download } from "lucide-react";
+import {
+  CheckCircle,
+  Package,
+  MapPin,
+  Phone,
+  Mail,
+  Download,
+} from "lucide-react";
 import Layout from "@/components/Layout";
 import { getOrders } from "@/lib/storage";
 import { Order } from "@/lib/products";
@@ -69,7 +76,9 @@ export default function OrderConfirmation() {
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Payment Method</span>
+                    <span className="text-muted-foreground">
+                      Payment Method
+                    </span>
                     <span className="font-semibold capitalize">
                       {order.paymentMethod === "cod"
                         ? "Cash on Delivery"
@@ -81,7 +90,8 @@ export default function OrderConfirmation() {
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Status</span>
                     <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-xs font-semibold">
-                      {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                      {order.status.charAt(0).toUpperCase() +
+                        order.status.slice(1)}
                     </span>
                   </div>
                 </div>
@@ -95,9 +105,12 @@ export default function OrderConfirmation() {
                 </h2>
                 <div className="space-y-2 text-sm">
                   <p className="font-semibold">{order.shippingAddress.name}</p>
-                  <p className="text-muted-foreground">{order.shippingAddress.address}</p>
                   <p className="text-muted-foreground">
-                    {order.shippingAddress.city}, {order.shippingAddress.postalCode}
+                    {order.shippingAddress.address}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {order.shippingAddress.city},{" "}
+                    {order.shippingAddress.postalCode}
                   </p>
                   <div className="flex items-center gap-2 text-muted-foreground mt-3 pt-3 border-t border-border">
                     <Phone size={16} />
@@ -115,7 +128,9 @@ export default function OrderConfirmation() {
             <div className="space-y-6">
               {/* Order Items */}
               <div className="bg-card border border-border rounded-lg p-6">
-                <h2 className="text-lg font-bold mb-4">Order Items ({order.items.length})</h2>
+                <h2 className="text-lg font-bold mb-4">
+                  Order Items ({order.items.length})
+                </h2>
                 <div className="space-y-3 max-h-64 overflow-y-auto">
                   {order.items.map((item) => (
                     <div
@@ -123,7 +138,9 @@ export default function OrderConfirmation() {
                       className="flex justify-between items-center py-2 border-b border-border last:border-0"
                     >
                       <div className="flex-1">
-                        <p className="font-semibold text-sm">{item.product.name}</p>
+                        <p className="font-semibold text-sm">
+                          {item.product.name}
+                        </p>
                         <p className="text-xs text-muted-foreground">
                           x {item.quantity}
                         </p>
@@ -142,12 +159,21 @@ export default function OrderConfirmation() {
                 <div className="space-y-2 mb-4 pb-4 border-b border-primary-foreground/20">
                   <div className="flex justify-between text-sm">
                     <span>Subtotal</span>
-                    <span>৳ {order.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0)}</span>
+                    <span>
+                      ৳{" "}
+                      {order.items.reduce(
+                        (sum, item) => sum + item.product.price * item.quantity,
+                        0,
+                      )}
+                    </span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>Shipping</span>
                     <span>
-                      {order.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0) > 500
+                      {order.items.reduce(
+                        (sum, item) => sum + item.product.price * item.quantity,
+                        0,
+                      ) > 500
                         ? "Free"
                         : "৳ 80"}
                     </span>
@@ -163,7 +189,9 @@ export default function OrderConfirmation() {
 
           {/* Next Steps */}
           <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
-            <h3 className="font-bold text-blue-900 dark:text-blue-300 mb-3">What's Next?</h3>
+            <h3 className="font-bold text-blue-900 dark:text-blue-300 mb-3">
+              What's Next?
+            </h3>
             <ol className="space-y-2 text-sm text-blue-800 dark:text-blue-200 list-decimal list-inside">
               <li>We'll prepare your order for shipment</li>
               <li>You'll receive a tracking number via email and SMS</li>
@@ -203,7 +231,10 @@ export default function OrderConfirmation() {
                 support@easymart.bd
               </a>{" "}
               or call{" "}
-              <a href="tel:+8801800123456" className="text-primary font-semibold hover:underline">
+              <a
+                href="tel:+8801800123456"
+                className="text-primary font-semibold hover:underline"
+              >
                 +880 1800-123456
               </a>
             </p>

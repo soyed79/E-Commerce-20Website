@@ -9,7 +9,7 @@ export default function Checkout() {
   const navigate = useNavigate();
   const user = getCurrentUser();
   const cartItems = getCart();
-  
+
   const [formData, setFormData] = useState({
     name: user?.name || "",
     email: user?.email || "",
@@ -34,13 +34,13 @@ export default function Checkout() {
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
-    0
+    0,
   );
   const shippingCost = subtotal > 500 ? 0 : 80;
   const total = subtotal + shippingCost;
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -94,8 +94,12 @@ export default function Checkout() {
       <Layout>
         <div className="container mx-auto px-4 py-12 text-center">
           <div className="text-6xl mb-4">✓</div>
-          <h1 className="text-3xl font-bold mb-2">Order Placed Successfully!</h1>
-          <p className="text-muted-foreground">Redirecting to confirmation...</p>
+          <h1 className="text-3xl font-bold mb-2">
+            Order Placed Successfully!
+          </h1>
+          <p className="text-muted-foreground">
+            Redirecting to confirmation...
+          </p>
         </div>
       </Layout>
     );
@@ -244,11 +248,7 @@ export default function Checkout() {
 
             {/* Terms */}
             <label className="flex items-start gap-3 p-4 border border-border rounded-lg hover:bg-secondary transition-colors cursor-pointer">
-              <input
-                type="checkbox"
-                defaultChecked
-                className="mt-1 w-4 h-4"
-              />
+              <input type="checkbox" defaultChecked className="mt-1 w-4 h-4" />
               <span className="text-sm">
                 I agree to the Terms & Conditions and Privacy Policy
               </span>
@@ -272,7 +272,10 @@ export default function Checkout() {
               {/* Items */}
               <div className="space-y-3 mb-4 pb-4 border-b border-border max-h-64 overflow-y-auto">
                 {cartItems.map((item) => (
-                  <div key={item.product.id} className="flex justify-between text-sm">
+                  <div
+                    key={item.product.id}
+                    className="flex justify-between text-sm"
+                  >
                     <span>
                       {item.product.name.substring(0, 20)}... x {item.quantity}
                     </span>

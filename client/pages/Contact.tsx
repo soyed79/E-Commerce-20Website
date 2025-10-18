@@ -12,7 +12,9 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -49,7 +51,9 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold mb-1">Call Us</h3>
                   <p className="text-muted-foreground">+880 1800-123456</p>
-                  <p className="text-sm text-muted-foreground">Available 9 AM - 9 PM</p>
+                  <p className="text-sm text-muted-foreground">
+                    Available 9 AM - 9 PM
+                  </p>
                 </div>
               </div>
 
@@ -60,7 +64,9 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold mb-1">Email Us</h3>
                   <p className="text-muted-foreground">support@easymart.bd</p>
-                  <p className="text-sm text-muted-foreground">Response within 24 hours</p>
+                  <p className="text-sm text-muted-foreground">
+                    Response within 24 hours
+                  </p>
                 </div>
               </div>
 
@@ -70,8 +76,12 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold mb-1">Visit Us</h3>
-                  <p className="text-muted-foreground">123 Main Street, Dhaka</p>
-                  <p className="text-sm text-muted-foreground">Bangladesh 1000</p>
+                  <p className="text-muted-foreground">
+                    123 Main Street, Dhaka
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Bangladesh 1000
+                  </p>
                 </div>
               </div>
 
@@ -81,8 +91,12 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold mb-1">Business Hours</h3>
-                  <p className="text-sm text-muted-foreground">Mon - Fri: 9 AM - 9 PM</p>
-                  <p className="text-sm text-muted-foreground">Sat - Sun: 10 AM - 6 PM</p>
+                  <p className="text-sm text-muted-foreground">
+                    Mon - Fri: 9 AM - 9 PM
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Sat - Sun: 10 AM - 6 PM
+                  </p>
                 </div>
               </div>
             </div>
@@ -109,7 +123,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Email</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -122,7 +138,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Subject</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Subject
+                </label>
                 <select
                   name="subject"
                   value={formData.subject}
@@ -141,7 +159,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Message</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   value={formData.message}

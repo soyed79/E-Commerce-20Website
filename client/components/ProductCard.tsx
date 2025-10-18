@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { Heart, ShoppingCart, Star } from "lucide-react";
 import { Product } from "@/lib/products";
-import { addToCart, addToWishlist, removeFromWishlist, isInWishlist } from "@/lib/storage";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+  isInWishlist,
+} from "@/lib/storage";
 import { useState } from "react";
 
 interface ProductCardProps {
@@ -11,7 +16,9 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const [inWishlist, setInWishlist] = useState(isInWishlist(product.id));
   const discount = product.originalPrice
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+    ? Math.round(
+        ((product.originalPrice - product.price) / product.originalPrice) * 100,
+      )
     : 0;
 
   const handleAddToCart = () => {
@@ -32,7 +39,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow duration-300">
       {/* Image Container */}
-      <Link to={`/product/${product.id}`} className="block relative overflow-hidden bg-secondary h-64">
+      <Link
+        to={`/product/${product.id}`}
+        className="block relative overflow-hidden bg-secondary h-64"
+      >
         <img
           src={product.image}
           alt={product.name}
@@ -60,7 +70,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Content */}
       <div className="p-4">
         {/* Category */}
-        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{product.category}</p>
+        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+          {product.category}
+        </p>
 
         {/* Title */}
         <Link
@@ -77,19 +89,29 @@ export default function ProductCard({ product }: ProductCardProps) {
               <Star
                 key={i}
                 size={14}
-                className={i < Math.floor(product.rating) ? "fill-accent text-accent" : "text-muted"}
+                className={
+                  i < Math.floor(product.rating)
+                    ? "fill-accent text-accent"
+                    : "text-muted"
+                }
               />
             ))}
           </div>
-          <span className="text-xs text-muted-foreground">({product.reviews})</span>
+          <span className="text-xs text-muted-foreground">
+            ({product.reviews})
+          </span>
         </div>
 
         {/* Price */}
         <div className="mb-4">
           <div className="flex items-baseline gap-2">
-            <span className="text-xl font-bold text-primary">৳ {product.price}</span>
+            <span className="text-xl font-bold text-primary">
+              ৳ {product.price}
+            </span>
             {product.originalPrice && (
-              <span className="text-sm line-through text-muted-foreground">৳ {product.originalPrice}</span>
+              <span className="text-sm line-through text-muted-foreground">
+                ৳ {product.originalPrice}
+              </span>
             )}
           </div>
         </div>

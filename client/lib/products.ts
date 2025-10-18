@@ -269,7 +269,7 @@ const products: Product[] = [
     reviews: 89,
     description: "Set of 3 decorative ceramic vases",
     specifications: {
-      "Pieces": "3",
+      Pieces: "3",
       Material: "Ceramic",
       Colors: "Assorted",
     },
@@ -305,7 +305,7 @@ const products: Product[] = [
     reviews: 123,
     description: "Set of 2 decorative throw pillows",
     specifications: {
-      "Pieces": "2",
+      Pieces: "2",
       Size: "45x45cm",
       Material: "Cotton blend",
     },
@@ -341,7 +341,7 @@ const products: Product[] = [
     description: "Family board game pack with 4 games",
     specifications: {
       "Game Count": "4",
-      "Players": "2-6",
+      Players: "2-6",
       "Age Group": "8+",
     },
     inStock: true,
@@ -376,7 +376,7 @@ const products: Product[] = [
     reviews: 95,
     description: "3D puzzle collection pack",
     specifications: {
-      "Puzzles": "3",
+      Puzzles: "3",
       Difficulty: "Medium to Hard",
       "Age Group": "12+",
     },
@@ -396,7 +396,7 @@ const products: Product[] = [
     specifications: {
       Thickness: "6mm",
       Material: "TPE",
-      "Length": "183cm",
+      Length: "183cm",
     },
     inStock: true,
     badge: "Hot Deal",
@@ -433,7 +433,7 @@ const products: Product[] = [
     specifications: {
       "Band Count": "5",
       Resistance: "Multiple levels",
-      "Length": "208cm",
+      Length: "208cm",
     },
     inStock: true,
   },
